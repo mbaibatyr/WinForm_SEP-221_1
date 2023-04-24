@@ -60,5 +60,43 @@ namespace MyWinForm
                 }
             }
         }
+
+        private void cbCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int id = (int)cbCity.SelectedValue;
+            Text = cbCity.Text + " " + id.ToString() + " " + cbCity.SelectedIndex;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["conStr"]))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("select id, name from country", con))
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(cmd.ExecuteReader());
+                    cbCountry.Items.Clear();
+                    cbCountry.DataSource = dt;
+                }
+            }
+        }
+
+        private void cbCountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbCity.DataSource = null;
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["conStr"]))
+            {
+                con.Open();
+                int id = (int)cbCountry.SelectedValue;
+                using (SqlCommand cmd = new SqlCommand("select id, name from city where countryId = " + id, con))
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(cmd.ExecuteReader());
+                    //cbCity.Items.Clear();
+                    cbCity.DataSource = dt;
+                }
+            }
+        }
     }
 }
