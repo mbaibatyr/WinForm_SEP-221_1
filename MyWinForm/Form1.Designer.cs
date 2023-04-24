@@ -28,26 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.btTestConnection = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cbCity = new System.Windows.Forms.ComboBox();
+            this.lbCity = new System.Windows.Forms.Label();
+            this.btLoadFromList = new System.Windows.Forms.Button();
+            this.btLoadFromDB = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(651, 74);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 42);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btTestConnection
             // 
-            this.btTestConnection.Location = new System.Drawing.Point(146, 74);
+            this.btTestConnection.Location = new System.Drawing.Point(707, 90);
             this.btTestConnection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btTestConnection.Name = "btTestConnection";
             this.btTestConnection.Size = new System.Drawing.Size(115, 44);
@@ -56,48 +46,73 @@
             this.btTestConnection.UseVisualStyleBackColor = true;
             this.btTestConnection.Click += new System.EventHandler(this.btTestConnection_Click);
             // 
-            // comboBox1
+            // cbCity
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(146, 136);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(135, 21);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.cbCity.DisplayMember = "name";
+            this.cbCity.FormattingEnabled = true;
+            this.cbCity.Items.AddRange(new object[] {
+            "Алматы",
+            "Астана",
+            "Актобе"});
+            this.cbCity.Location = new System.Drawing.Point(79, 57);
+            this.cbCity.Name = "cbCity";
+            this.cbCity.Size = new System.Drawing.Size(222, 21);
+            this.cbCity.TabIndex = 2;
+            this.cbCity.ValueMember = "id";
             // 
-            // button2
+            // lbCity
             // 
-            this.button2.Location = new System.Drawing.Point(595, 161);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.lbCity.AutoSize = true;
+            this.lbCity.Location = new System.Drawing.Point(76, 37);
+            this.lbCity.Name = "lbCity";
+            this.lbCity.Size = new System.Drawing.Size(43, 13);
+            this.lbCity.TabIndex = 3;
+            this.lbCity.Text = "Города";
+            // 
+            // btLoadFromList
+            // 
+            this.btLoadFromList.Location = new System.Drawing.Point(340, 55);
+            this.btLoadFromList.Name = "btLoadFromList";
+            this.btLoadFromList.Size = new System.Drawing.Size(157, 23);
+            this.btLoadFromList.TabIndex = 4;
+            this.btLoadFromList.Text = "Загрузка из LIST";
+            this.btLoadFromList.UseVisualStyleBackColor = true;
+            this.btLoadFromList.Click += new System.EventHandler(this.btLoadFromList_Click);
+            // 
+            // btLoadFromDB
+            // 
+            this.btLoadFromDB.Location = new System.Drawing.Point(340, 104);
+            this.btLoadFromDB.Name = "btLoadFromDB";
+            this.btLoadFromDB.Size = new System.Drawing.Size(157, 23);
+            this.btLoadFromDB.TabIndex = 5;
+            this.btLoadFromDB.Text = "Загрузка из БД";
+            this.btLoadFromDB.UseVisualStyleBackColor = true;
+            this.btLoadFromDB.Click += new System.EventHandler(this.btLoadFromDB_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1107, 621);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.btLoadFromDB);
+            this.Controls.Add(this.btLoadFromList);
+            this.Controls.Add(this.lbCity);
+            this.Controls.Add(this.cbCity);
             this.Controls.Add(this.btTestConnection);
-            this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btTestConnection;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cbCity;
+        private System.Windows.Forms.Label lbCity;
+        private System.Windows.Forms.Button btLoadFromList;
+        private System.Windows.Forms.Button btLoadFromDB;
     }
 }
 

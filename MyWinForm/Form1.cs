@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyWinForm.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -19,12 +20,6 @@ namespace MyWinForm
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var login = ConfigurationManager.AppSettings["login"];
-            var password = ConfigurationManager.AppSettings["password"];
-            Text = login + " " + password;
-        }
 
         private void btTestConnection_Click(object sender, EventArgs e)
         {
@@ -36,19 +31,34 @@ namespace MyWinForm
             }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void btLoadFromList_Click(object sender, EventArgs e)
         {
+            List<City> cities = new List<City>()
+            {
+                new City(){id=1, name="Atyrau"},
+                new City(){id=2, name="Aktau"},
+                new City(){id=3, name="Alga"}
+            };
+            cities.Add(new City() { id = 4, name = "Shymkent" });
 
+            cbCity.Items.Clear();
+            cbCity.DataSource = cities;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btLoadFromDB_Click(object sender, EventArgs e)
         {
-            btTestConnection.Visible = !btTestConnection.Visible;
-
-            //if (!btTestConnection.Visible)
-            //    btTestConnection.Visible = true;
-            //else
-            //    btTestConnection.Visible = false;
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["conStr"]))
+            {
+                con.Open();
+                //Text = con.State.ToString();
+                using (SqlCommand cmd = new SqlCommand("select id, name from CITY", con))
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(cmd.ExecuteReader());
+                    cbCity.Items.Clear();
+                    cbCity.DataSource = dt;
+                }
+            }
         }
     }
 }
