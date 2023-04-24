@@ -40,5 +40,15 @@ namespace MyWinForm
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            btTestConnection.Visible = !btTestConnection.Visible;
+
+            //if (!btTestConnection.Visible)
+            //    btTestConnection.Visible = true;
+            //else
+            //    btTestConnection.Visible = false;
+        }
     }
 }

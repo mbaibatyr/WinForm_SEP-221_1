@@ -31,13 +31,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btTestConnection = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(801, 114);
+            this.button1.Location = new System.Drawing.Point(651, 74);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 65);
+            this.button1.Size = new System.Drawing.Size(85, 42);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -45,9 +47,10 @@
             // 
             // btTestConnection
             // 
-            this.btTestConnection.Location = new System.Drawing.Point(219, 114);
+            this.btTestConnection.Location = new System.Drawing.Point(146, 74);
+            this.btTestConnection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btTestConnection.Name = "btTestConnection";
-            this.btTestConnection.Size = new System.Drawing.Size(173, 67);
+            this.btTestConnection.Size = new System.Drawing.Size(115, 44);
             this.btTestConnection.TabIndex = 1;
             this.btTestConnection.Text = "Тест соединение";
             this.btTestConnection.UseVisualStyleBackColor = true;
@@ -56,20 +59,33 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(219, 209);
+            this.comboBox1.Location = new System.Drawing.Point(146, 136);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(201, 28);
+            this.comboBox1.Size = new System.Drawing.Size(135, 21);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(595, 161);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1661, 955);
+            this.ClientSize = new System.Drawing.Size(1107, 621);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btTestConnection);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -81,6 +97,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btTestConnection;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
