@@ -63,8 +63,8 @@ namespace MyWinForm
 
         private void cbCity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int id = (int)cbCity.SelectedValue;
-            Text = cbCity.Text + " " + id.ToString() + " " + cbCity.SelectedIndex;
+            //int id = (int)cbCity.SelectedValue;
+            //Text = cbCity.Text + " " + id.ToString() + " " + cbCity.SelectedIndex;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -83,8 +83,7 @@ namespace MyWinForm
         }
 
         private void cbCountry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            cbCity.DataSource = null;
+        {            
             using (SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["conStr"]))
             {
                 con.Open();
@@ -93,7 +92,9 @@ namespace MyWinForm
                 {
                     DataTable dt = new DataTable();
                     dt.Load(cmd.ExecuteReader());
-                    //cbCity.Items.Clear();
+                    cbCity.DataSource = null;
+                    cbCity.DisplayMember = "name";
+                    cbCity.ValueMember= "id";
                     cbCity.DataSource = dt;
                 }
             }
