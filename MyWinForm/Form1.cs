@@ -99,5 +99,21 @@ namespace MyWinForm
                 }
             }
         }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(tbFN.Text))
+            {
+                MessageBox.Show("Имя - обязательное поле", "Внимание", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning );
+                tbFN.Focus();
+                return;
+            }
+           
+        }
+
+        private void cmsAlmaty_Click(object sender, EventArgs e)
+        {
+            cbTest.Items.Add((sender as ToolStripMenuItem).Text);
+        }
     }
 }
