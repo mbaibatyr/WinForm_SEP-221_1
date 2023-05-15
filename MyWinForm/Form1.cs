@@ -115,5 +115,11 @@ namespace MyWinForm
         {
             cbTest.Items.Add((sender as ToolStripMenuItem).Text);
         }
+
+        private void btColor_Click(object sender, EventArgs e)
+        {
+            cbColor.Items.Add("green");
+            cbColor.Items.Add("red");
+        }
     }
 }
