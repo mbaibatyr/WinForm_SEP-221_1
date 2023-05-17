@@ -53,6 +53,12 @@
     <Compile Include="fmAbout.Designer.cs">
       <DependentUpon>fmAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmCrud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmCrud.Designer.cs">
+      <DependentUpon>fmCrud.cs</DependentUpon>
+    </Compile>
     <Compile Include="fmDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fmAbout.resx">
       <DependentUpon>fmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmCrud.resx">
+      <DependentUpon>fmCrud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fmDialog.resx">
       <DependentUpon>fmDialog.cs</DependentUpon>

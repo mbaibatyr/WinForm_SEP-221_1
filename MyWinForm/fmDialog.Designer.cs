@@ -36,11 +36,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btExcelOpen = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btOpenCountry = new System.Windows.Forms.Button();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.gvCountry = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCountry)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -103,14 +105,15 @@
             this.btExcelOpen.UseVisualStyleBackColor = true;
             this.btExcelOpen.Click += new System.EventHandler(this.btExcelOpen_Click);
             // 
-            // button1
+            // btOpenCountry
             // 
-            this.button1.Location = new System.Drawing.Point(335, 305);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btOpenCountry.Location = new System.Drawing.Point(482, 305);
+            this.btOpenCountry.Name = "btOpenCountry";
+            this.btOpenCountry.Size = new System.Drawing.Size(114, 23);
+            this.btOpenCountry.TabIndex = 6;
+            this.btOpenCountry.Text = "Открыть страны";
+            this.btOpenCountry.UseVisualStyleBackColor = true;
+            this.btOpenCountry.Click += new System.EventHandler(this.button1_Click);
             // 
             // checkedListBox1
             // 
@@ -146,15 +149,29 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
+            // gvCountry
+            // 
+            this.gvCountry.AllowUserToAddRows = false;
+            this.gvCountry.AllowUserToDeleteRows = false;
+            this.gvCountry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvCountry.Location = new System.Drawing.Point(-1, 347);
+            this.gvCountry.Name = "gvCountry";
+            this.gvCountry.ReadOnly = true;
+            this.gvCountry.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.gvCountry.Size = new System.Drawing.Size(899, 150);
+            this.gvCountry.TabIndex = 11;
+            this.gvCountry.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCountry_CellClick);
+            // 
             // fmDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1188, 497);
+            this.Controls.Add(this.gvCountry);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btOpenCountry);
             this.Controls.Add(this.btExcelOpen);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
@@ -165,6 +182,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Диалоговые элементы";
             this.Load += new System.EventHandler(this.fmDialog_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gvCountry)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,10 +197,11 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btExcelOpen;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btOpenCountry;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DataGridView gvCountry;
     }
 }

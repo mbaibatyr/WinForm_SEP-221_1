@@ -16,7 +16,7 @@ namespace MyWinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fmDialog());
+            Application.Run(new fmCrud());
         }
     }
 }

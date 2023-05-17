@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -84,5 +86,66 @@ namespace MyWinForm
             tt.Show(string.Empty, tbFileName);
             tt.Show("I need help", tbFileName, 0);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["conStr"]))
+            {
+                con.Open();                                
+                using (SqlCommand cmd = new SqlCommand("select * from country", con))
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(cmd.ExecuteReader());                    
+                    gvCountry.DataSource = dt;
+                }
+            }
+        }
+
+        private void gvCountry_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Text = gvCountry.SelectedCells[1].Value.ToString();
+        }
     }
 }
+
+
+/*
+ 
+\\share\Shared_Folder\Временные файлы\221-1
+
+ alter proc pStudentIns --'123456789012', N'Кан', N'Артем','2000-01-01','m'
+@iin char(12),
+@lastName nvarchar(200),
+@firstName nvarchar(200),
+@dateBirth datetime,
+@gender char(1)
+as
+if exists (
+				select * from Student
+				where iin = @iin
+				and lastName = @lastName
+				and firstName = @firstName
+		  )
+	select 0 status
+else
+begin
+	insert into Student
+		(
+		iin,
+		lastName,
+		firstName,
+		dateBirth,
+		gender
+		)
+	VALUES
+	(
+		@iin,
+		@lastName,
+		@firstName,
+		@dateBirth,
+		@gender
+	)
+	SELECT 1 STATUS
+end
+ 
+ */

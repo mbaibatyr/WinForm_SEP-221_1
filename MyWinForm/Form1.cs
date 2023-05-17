@@ -88,6 +88,7 @@ namespace MyWinForm
             {
                 con.Open();
                 int id = (int)cbCountry.SelectedValue;
+                Text = cbCountry.Text + " " + id + " " + cbCountry.SelectedIndex;
                 using (SqlCommand cmd = new SqlCommand("select id, name from city where countryId = " + id, con))
                 {
                     DataTable dt = new DataTable();
