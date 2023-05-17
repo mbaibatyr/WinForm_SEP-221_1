@@ -72,5 +72,10 @@ namespace MyWinForm
                 con.Close();
             }
         }
+
+        private void gvStudent_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Text = gvStudent.SelectedCells[0].Value.ToString();
+        }
     }
 }
