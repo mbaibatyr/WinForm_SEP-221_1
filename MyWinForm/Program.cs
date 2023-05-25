@@ -20,3 +20,12 @@ namespace MyWinForm
         }
     }
 }
+
+/*
+ https://github.com/mbaibatyr/WinForm_SEP-221_1.git
+
+https://github.com/mbaibatyr/SEP_221.2_Winforms.git
+
+\\share\Shared_Folder\Временные файлы\221-1
+ 
+ */

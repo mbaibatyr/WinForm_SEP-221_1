@@ -50,8 +50,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btSearch = new System.Windows.Forms.Button();
             this.gvStudent = new System.Windows.Forms.DataGridView();
+            this.cbTypeReport = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btTypeReport = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvStudent)).BeginInit();
             this.SuspendLayout();
@@ -218,6 +222,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btTypeReport);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.cbTypeReport);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox2.Location = new System.Drawing.Point(915, 0);
             this.groupBox2.Name = "groupBox2";
@@ -279,6 +286,37 @@
             this.gvStudent.TabIndex = 0;
             this.gvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvStudent_CellClick);
             // 
+            // cbTypeReport
+            // 
+            this.cbTypeReport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTypeReport.FormattingEnabled = true;
+            this.cbTypeReport.Items.AddRange(new object[] {
+            "CSV",
+            "Excel"});
+            this.cbTypeReport.Location = new System.Drawing.Point(74, 19);
+            this.cbTypeReport.Name = "cbTypeReport";
+            this.cbTypeReport.Size = new System.Drawing.Size(126, 21);
+            this.cbTypeReport.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Тип отчета";
+            // 
+            // btTypeReport
+            // 
+            this.btTypeReport.Location = new System.Drawing.Point(77, 67);
+            this.btTypeReport.Name = "btTypeReport";
+            this.btTypeReport.Size = new System.Drawing.Size(75, 23);
+            this.btTypeReport.TabIndex = 2;
+            this.btTypeReport.Text = "Сохранить отчет";
+            this.btTypeReport.UseVisualStyleBackColor = true;
+            this.btTypeReport.Click += new System.EventHandler(this.btTypeReport_Click);
+            // 
             // fmCrud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,6 +330,8 @@
             this.panel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvStudent)).EndInit();
@@ -322,5 +362,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbTypeReport;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btTypeReport;
     }
 }
