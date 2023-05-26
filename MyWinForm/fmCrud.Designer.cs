@@ -45,14 +45,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbLN = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btTypeReport = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbTypeReport = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbIin = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btSearch = new System.Windows.Forms.Button();
             this.gvStudent = new System.Windows.Forms.DataGridView();
-            this.cbTypeReport = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btTypeReport = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -233,6 +233,38 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Отчеты";
             // 
+            // btTypeReport
+            // 
+            this.btTypeReport.Location = new System.Drawing.Point(77, 67);
+            this.btTypeReport.Name = "btTypeReport";
+            this.btTypeReport.Size = new System.Drawing.Size(75, 23);
+            this.btTypeReport.TabIndex = 2;
+            this.btTypeReport.Text = "Сохранить отчет";
+            this.btTypeReport.UseVisualStyleBackColor = true;
+            this.btTypeReport.Click += new System.EventHandler(this.btTypeReport_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(62, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Тип отчета";
+            // 
+            // cbTypeReport
+            // 
+            this.cbTypeReport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTypeReport.FormattingEnabled = true;
+            this.cbTypeReport.Items.AddRange(new object[] {
+            "CSV",
+            "Excel",
+            "PDF"});
+            this.cbTypeReport.Location = new System.Drawing.Point(74, 19);
+            this.cbTypeReport.Name = "cbTypeReport";
+            this.cbTypeReport.Size = new System.Drawing.Size(126, 21);
+            this.cbTypeReport.TabIndex = 0;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tbIin);
@@ -285,37 +317,6 @@
             this.gvStudent.Size = new System.Drawing.Size(1246, 582);
             this.gvStudent.TabIndex = 0;
             this.gvStudent.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvStudent_CellClick);
-            // 
-            // cbTypeReport
-            // 
-            this.cbTypeReport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTypeReport.FormattingEnabled = true;
-            this.cbTypeReport.Items.AddRange(new object[] {
-            "CSV",
-            "Excel"});
-            this.cbTypeReport.Location = new System.Drawing.Point(74, 19);
-            this.cbTypeReport.Name = "cbTypeReport";
-            this.cbTypeReport.Size = new System.Drawing.Size(126, 21);
-            this.cbTypeReport.TabIndex = 0;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Тип отчета";
-            // 
-            // btTypeReport
-            // 
-            this.btTypeReport.Location = new System.Drawing.Point(77, 67);
-            this.btTypeReport.Name = "btTypeReport";
-            this.btTypeReport.Size = new System.Drawing.Size(75, 23);
-            this.btTypeReport.TabIndex = 2;
-            this.btTypeReport.Text = "Сохранить отчет";
-            this.btTypeReport.UseVisualStyleBackColor = true;
-            this.btTypeReport.Click += new System.EventHandler(this.btTypeReport_Click);
             // 
             // fmCrud
             // 

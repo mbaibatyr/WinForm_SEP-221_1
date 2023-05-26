@@ -12,6 +12,7 @@ namespace MyWinForm
     public enum EnumType
     {
         csvEnum = 1,
-        excelEnum = 2
+        excelEnum = 2,
+        pdfEnum = 3
     }
 }

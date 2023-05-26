@@ -10,6 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClosedXML;
+using ClosedXML.Excel;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace MyWinForm
 {
@@ -82,7 +86,12 @@ namespace MyWinForm
         private void btTypeReport_Click(object sender, EventArgs e)
         {
             var dt = getDataReport();
-            doReport(EnumType.csvEnum, dt);
+            if (cbTypeReport.SelectedIndex == 0)
+                doReport(EnumType.csvEnum, dt);
+            else if (cbTypeReport.SelectedIndex == 1)
+                doReport(EnumType.excelEnum, dt);
+            else if (cbTypeReport.SelectedIndex == 2)
+                doReport(EnumType.pdfEnum, dt);
 
         }
 
@@ -96,21 +105,27 @@ namespace MyWinForm
                     sb.AppendLine("iin;lastName;firstName");
                     foreach (DataRow row in dt.Rows)
                     {
-                        sb.AppendLine(row[0].ToString() + ";" + 
-                            row["lastName"].ToString() + ";" + 
+                        sb.AppendLine(row[0].ToString() + ";" +
+                            row["lastName"].ToString() + ";" +
                             row[2].ToString());
                     }
                     File.WriteAllText(DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".csv", sb.ToString(), Encoding.UTF8);
                 }
-                else
+                else if (enumType == EnumType.excelEnum)
                 {
-
+                    var wb = new XLWorkbook();
+                    wb.AddWorksheet(dt, "report");
+                    wb.SaveAs(DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".xlsx");
+                }
+                else if (enumType == EnumType.pdfEnum)
+                {
+                    ExportToPdf(dt, DateTime.Now.ToString("yyyy-MM-dd HHmmss") + ".pdf");
                 }
                 return "ok";
             }
             catch (Exception err)
             {
-                return "error. " + err.Message ;
+                return "error. " + err.Message;
             }
         }
 
@@ -128,5 +143,50 @@ namespace MyWinForm
                 }
             }
         }
+
+        public void ExportToPdf(DataTable dt, string strFilePath)
+        {
+            Document document = new Document();
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(strFilePath, FileMode.Create));
+            document.Open();
+            //iTextSharp.text.Font font5 = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, 5);
+            //iTextSharp.text.Font font5 = FontFactory.GetFont("/fonts/DejaVuSans.ttf", "cp1251", BaseFont.EMBEDDED, 10);
+            iTextSharp.text.Font font5 = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, "Cp1250", true);
+
+            PdfPTable table = new PdfPTable(dt.Columns.Count);
+            PdfPRow row = null;
+            float[] widths = new float[dt.Columns.Count];
+            for (int i = 0; i < dt.Columns.Count; i++)
+                widths[i] = 4f;
+
+            table.SetWidths(widths);
+
+            table.WidthPercentage = 100;
+            int iCol = 0;
+            string colname = "";
+            PdfPCell cell = new PdfPCell(new Phrase("Products"));
+
+            cell.Colspan = dt.Columns.Count;
+
+            foreach (DataColumn c in dt.Columns)
+            {
+                table.AddCell(new Phrase(c.ColumnName, font5));
+            }
+
+            foreach (DataRow r in dt.Rows)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    for (int h = 0; h < dt.Columns.Count; h++)
+                    {
+                        table.AddCell(new Phrase(r[h].ToString(), font5));
+                    }
+                }
+            }
+            document.Add(table);
+            document.Close();
+        }
+
+
     }
 }
