@@ -16,6 +16,7 @@
             <GradientStop Color="Black" Offset="0"/>
             <GradientStop Color="Red" Offset="1"/>
         </RadialGradientBrush>
+       
     </Window.Resources>
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
